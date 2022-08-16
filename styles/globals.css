@@ -1,3 +1,5 @@
+@import url('https://use.typekit.net/xop4lyt.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,25 +8,48 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer base {
+  /* text */
+  .text-BW {
+    @apply font-usual text-black dark:text-[#F9F9F9]
   }
-  body {
-    color: white;
-    background: black;
+
+  /* background img */
+  .bg-grain01 {
+    @apply bg-cover bg-[url('/img/bg_light_01.jpg')] dark:bg-[url('/img/bg_dark_01.jpg')] bg-opacity-100
+  }
+  .bg-grain02 {
+    @apply bg-cover bg-[url('/img/grain_white.jpg')] dark:bg-[url('/img/grain_black.jpg')] 
+  }
+
+  /* box section -> contents -> item / border*/
+  .box-section {
+    @apply text-BW w-screen h-full xl:h-screen overflow-hidden items-center justify-center border-y-2 border-black dark:border-white
+  }
+  .box-contents {
+    @apply h-full w-full px-6 sm:px-10 md:px-12 2xl:px-80
+  }
+
+  .box-item {
+    @apply my-10 space-y-8 sm:space-y-0
+  }
+  .box-item-col2 {
+    @apply sm:grid sm:grid-cols-2 lg:grid-cols-2 sm:gap-12
+  }
+  .box-item-col3 {
+    @apply sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-12
+  }
+  .box-item-col4 {
+    @apply sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-12
+  }
+
+  .box-item-head {
+    @apply lg:m-16 text-5xl font-extrabold tracking-tight leading-tight text-center
+  }
+  
+  .box-border {
+    @apply border-2 space-y-8 p-4 w-full  border-black  dark:border-white
   }
 }
