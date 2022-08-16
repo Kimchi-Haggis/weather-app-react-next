@@ -1,0 +1,1 @@
+export const CURRENT_WEATHER = process.env.NEXT_PUBLIC_CURRENT_WEATHER as string;
