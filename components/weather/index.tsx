@@ -1,6 +1,6 @@
 import { CURRENT_WEATHER } from '@constants/weather.constant';
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 interface Main {
   temp: number;
@@ -23,30 +23,34 @@ interface DataType {
 }
 
 const Weather = () => {
-    const [data, setData] = useState<DataType>({})
-    const [location, setLocation] = useState('')
+  const [data, setData] = useState<DataType>({})
+  const [location, setLocation] = useState('')
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=${CURRENT_WEATHER}`
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=${CURRENT_WEATHER}`
+  
+  const searchLocation = async (e: { key: string }) => {
+    const res = await axios.get(url);
 
-    const searchLocation = (e: { key: string }) => {
-        if (e.key === 'Enter') {
-          axios.get(url).then((response) => {
-              setData(response.data)
-              console.log(response.data)
-          })
-          setLocation('')
-        }
+    if (e.key === 'Enter') {
+      try {
+        setData(res.data)
+        console.log(res.data);
+      } catch (error) {
+        alert("No location found")
+      }
     }
+  }
+  
+  const fahrenheitTemp = () => data.main.temp.toFixed();
+  const fahrenheitFeelsLike = () => data.main.feels_like.toFixed()
 
-    const fahrenheitTemp = () => data.main.temp.toFixed();
-    const fahrenheitFeelsLike = () => data.main.feels_like.toFixed()
+  function toCelsius(f:string) {
+    const num = parseInt(f)
+    const toCelsius = (5/9) * (num-32)
+    
+    return toCelsius.toFixed(1);
+  }
 
-    function toCelsius(f:string) {
-      const num = parseInt(f)
-      const toCelsius = (5/9) * (num-32)
-      
-      return toCelsius.toFixed(1);
-    }
   return (
     <div className="bg-grain02 box-section h-screen ">
       <div className='box-contents'>
@@ -92,7 +96,8 @@ const Weather = () => {
           }
         </div>
       </div>
-    </div>  )
+    </div>
+  )
 }
 
 export default Weather;
