@@ -29,15 +29,14 @@ const Weather = () => {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=${CURRENT_WEATHER}`
   
   const searchLocation = async (e: { key: string }) => {
-    const res = await axios.get(url);
 
-    if (e.key === 'Enter') {
-      try {
-        setData(res.data)
-        console.log(res.data);
-      } catch (error) {
-        alert("No location found")
+    try {
+      if (e.key === 'Enter') {
+        const res = await axios.get(url);
+        setData(res.data);
       }
+    } catch (error) {
+      alert("No location found")
     }
   }
   
