@@ -78,18 +78,24 @@ const Weather = () => {
           </div>
 
           {data.name !== undefined &&
-            <div className="box-item-col3">
-              <div className="feels">
-                {data.main ? <p className='bold'>{fahrenheitFeelsLike()}°F / {toCelsius(fahrenheitFeelsLike())}°C</p> : null}
-                <p>Feels Like</p>
+            <div className="box-item-col3 ">
+              <div className="flex justify-center">
+                <div>
+                  {data.main ? <p className='bold'>{fahrenheitFeelsLike()}°F / {toCelsius(fahrenheitFeelsLike())}°C</p> : null}
+                  <p>Feels Like</p>
+                </div>
               </div>
-              <div className="humidity">
-                {data.main ? <p className='bold'>{data.main.humidity}%</p> : null}
-                <p>Humidity</p>
+              <div className="flex justify-center">
+                <div>
+                  {data.main ? <p className='bold'>{data.main.humidity}%</p> : null}
+                  <p>Humidity</p>
+                </div>
               </div>
-              <div className="wind">
-                {data.wind ? <p className='bold'>{data.wind.speed.toFixed()} MPH</p> : null}
-                <p>Wind Speed</p>
+              <div className="flex justify-center">
+                <div>
+                  {data.wind ? <p className='bold'>{data.wind.speed.toFixed()} MPH</p> : null}
+                  <p>Wind Speed</p>
+                </div>
               </div>
             </div>
           }
