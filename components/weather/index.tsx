@@ -1,6 +1,6 @@
 import { CURRENT_WEATHER } from '@constants/weather.constant';
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 interface Main {
   temp: number;
@@ -23,7 +23,7 @@ interface DataType {
 }
 
 const Weather = () => {
-  const [data, setData] = useState<DataType>({})
+  const [data, setData] = useState({} as DataType)
   const [location, setLocation] = useState('')
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=${CURRENT_WEATHER}`
