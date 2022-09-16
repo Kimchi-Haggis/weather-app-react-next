@@ -34,6 +34,7 @@ const Weather = () => {
       if (e.key === 'Enter') {
         const res = await axios.get(url);
         setData(res.data);
+        setLocation("");
       }
     } catch (error) {
       alert("No location found")
