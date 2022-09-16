@@ -16,14 +16,6 @@ body {
     @apply font-usual text-black dark:text-[#F9F9F9]
   }
 
-  /* background img */
-  .bg-grain01 {
-    @apply bg-cover bg-[url('/img/bg_light_01.jpg')] dark:bg-[url('/img/bg_dark_01.jpg')] bg-opacity-100
-  }
-  .bg-grain02 {
-    @apply bg-cover bg-[url('/img/grain_white.jpg')] dark:bg-[url('/img/grain_black.jpg')] 
-  }
-
   /* box section -> contents -> item / border*/
   .box-section {
     @apply text-BW w-screen h-full xl:h-screen overflow-hidden items-center justify-center border-y-2 border-black dark:border-white
@@ -51,5 +43,9 @@ body {
   
   .box-border {
     @apply border-2 space-y-8 p-4 w-full  border-black  dark:border-white
+  }
+
+  .bg-container {
+    @apply bg-cover bg-[url(https://www.nationalgalleries.org/sites/default/files/styles/postcard/public/externals/86230.jpg?itok=NxNBwQXf)]
   }
 }
