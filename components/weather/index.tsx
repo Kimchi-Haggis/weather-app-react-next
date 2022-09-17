@@ -52,11 +52,11 @@ const Weather = () => {
   }
 
   return (
-    <div className="bg-grain02 box-section h-screen ">
+    <div className="box-section bg-container">
       <div className='box-contents'>
-        <div className="box-item-head text-black">
+        <div className="box-item-head text-black mt-10">
           <input
-            className='box-border text-center'
+            className='box-border text-center opacity-40 hover:opacity-100'
             value={location}
             onChange={e => setLocation(e.target.value)}
             onKeyPress={searchLocation}
@@ -67,33 +67,33 @@ const Weather = () => {
 
         <div className="box-item text-BW">
           <div className="box-item-head">
-            <div>
+            <div className='my-4'>
               <p>{data.name}</p>
             </div>
-            <div>
+            <div className='my-4'>
               {data.main ? <h1>{fahrenheitTemp()}°F / {toCelsius(fahrenheitTemp())}°C</h1> : null}
             </div>
-            <div>
+            <div className='my-4'>
               {data.weather ? <p>{data.weather[0].main}</p> : null}
             </div>
           </div>
 
           {data.name !== undefined &&
-            <div className="box-item-col3 ">
+            <div className="box-item-col3 pt-10 sm:pt-20 text-lg">
               <div className="flex justify-center">
-                <div>
+                <div className='w-32 my-4 '>
                   {data.main ? <p className='bold'>{fahrenheitFeelsLike()}°F / {toCelsius(fahrenheitFeelsLike())}°C</p> : null}
                   <p>Feels Like</p>
                 </div>
               </div>
               <div className="flex justify-center">
-                <div>
+                <div className='w-32 my-4 '>
                   {data.main ? <p className='bold'>{data.main.humidity}%</p> : null}
                   <p>Humidity</p>
                 </div>
               </div>
               <div className="flex justify-center">
-                <div>
+                <div className='w-32 my-4 '>
                   {data.wind ? <p className='bold'>{data.wind.speed.toFixed()} MPH</p> : null}
                   <p>Wind Speed</p>
                 </div>
@@ -102,6 +102,7 @@ const Weather = () => {
           }
         </div>
       </div>
+      <a className='absolute right-0 bottom-0 text-sm sm:text-base sm:right-10 sm:bottom-10' href="https://www.nationalgalleries.org/art-and-artists/6467">Artist:John MacWhirter</a>
     </div>
   )
 }
