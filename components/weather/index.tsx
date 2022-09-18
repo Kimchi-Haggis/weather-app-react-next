@@ -52,7 +52,7 @@ const Weather = () => {
   }
 
   return (
-    <div className="box-section bg-container">
+    <div className="box-section bg-container bg-opacity-10">
       <div className='box-contents'>
         <div className="box-item-head text-black mt-10">
           <input
@@ -79,7 +79,7 @@ const Weather = () => {
           </div>
 
           {data.name !== undefined &&
-            <div className="box-item-col3 pt-10 sm:pt-20 text-lg">
+            <div className="box-item-col3 pt-10 sm:pt-20 font-bold text-xl md:text-2xl">
               <div className="flex justify-center">
                 <div className='w-32 my-4 '>
                   {data.main ? <p className='bold'>{fahrenheitFeelsLike()}°F / {toCelsius(fahrenheitFeelsLike())}°C</p> : null}
@@ -102,7 +102,9 @@ const Weather = () => {
           }
         </div>
       </div>
-      <a className='absolute right-0 bottom-0 text-sm sm:text-base sm:right-10 sm:bottom-10' href="https://www.nationalgalleries.org/art-and-artists/6467">Artist:John MacWhirter</a>
+      <a className='absolute right-0 bottom-0 text-sm sm:text-base sm:right-10 sm:bottom-10' href="https://www.nationalgalleries.org/art-and-artists/6467">
+        Art by John MacWhirter
+      </a>
     </div>
   )
 }
